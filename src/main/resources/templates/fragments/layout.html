@@ -1,0 +1,39 @@
+<head th:fragment="header">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title >Template title</title>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+    <link href="../static/css/phonebook.css" th:href="@{css/phonebook.css}" rel="stylesheet" />
+</head>
+
+<!-- Global Side Navigator -->
+<div class="col-sm-3 col-md-2 sidebar" th:fragment="sidenav">
+    <ul class="nav nav-sidebar">
+        <li th:class="${selectedLocation.name == 'Home'}? 'active'">
+            <a href="/" th:href="@{/}">
+                <span>Home</span>
+            </a>
+        </li>
+        <li th:each="location : ${locations}" th:class="${selectedLocation.name == location.name}? 'active'">
+            <a href="#" th:href="@{'/location/' + ${location.id}}">
+                <span th:text="${location.name}">Demo Location</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div th:fragment="header-datatables" th:remove="tag">
+    <link href="webjars/datatables/1.10.12/css/dataTables.bootstrap.min.css"
+          th:href="@{/webjars/datatables/css/dataTables.bootstrap.min.css}" rel="stylesheet" media="screen" />
+</div>
+
+<div th:fragment="scripts-datatables" th:remove="tag">
+    <script src="http://cdn.jsdelivr.net/webjars/datatables/1.10.12/js/jquery.dataTables.min.js"
+            th:src="@{/webjars/datatables/js/jquery.dataTables.min.js}"></script>
+    <script src="http://cdn.jsdelivr.net/webjars/datatables/1.10.12/js/dataTables.bootstrap.min.js"
+            th:src="@{/webjars/datatables/js/dataTables.bootstrap.min.js}"></script>
+</div>

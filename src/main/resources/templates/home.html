@@ -1,25 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorator="layouts/main">
 <head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
-            th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
-    <link href="../static/css/phonebook.css" th:href="@{css/phonebook.css}" rel="stylesheet" />
+    <title>Home</title>
 </head>
 <body>
-<p>My Phonebook Application</p>
-
-<div class="col-sm-3 col-md-2 sidebar">
-    <ul class="nav nav-sidebar">
-        <li th:each="location : ${locations}">
-            <a href="#" th:href="@{'/location/' + ${location.id}}">
-                <span th:text="${location.name}">Demo Location</span>
-            </a>
-        </li>
-    </ul>
-</div>
-<script src="http://cdn.jsdelivr.net/webjars/jquery/3.1.1-1/jquery.min.js"
-        th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<th:block layout:fragment="content">
+    <h1 class="page-header">Welcome to the Phonebook</h1>
+</th:block>
 </body>
 </html>

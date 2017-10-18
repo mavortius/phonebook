@@ -21,6 +21,10 @@ public class Location {
     public Location() {
     }
 
+    public Location(String name) {
+        this.name = name;
+    }
+
     public Location(String id, String name, String address1, String address2,
                     String city, String state, String zip, String country, String mainPhone, String mainFax) {
         this.id = id;

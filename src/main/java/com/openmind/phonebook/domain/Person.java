@@ -115,4 +115,8 @@ public class Person {
     public void setManagerId(String managerId) {
         this.managerId = managerId;
     }
+
+    public String getFullName() {
+        return getFirstName() + " " + getLastName();
+    }
 }

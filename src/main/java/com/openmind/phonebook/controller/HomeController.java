@@ -1,5 +1,6 @@
 package com.openmind.phonebook.controller;
 
+import com.openmind.phonebook.domain.Location;
 import com.openmind.phonebook.repository.LocationRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,6 +18,7 @@ public class HomeController {
     @GetMapping("/")
     public String home(ModelMap model) {
         model.addAttribute("locations", locationRepository.findAll());
+        model.addAttribute("selectedLocation", new Location("Home"));
         return "home";
     }
 }
